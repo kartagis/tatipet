@@ -20,12 +20,12 @@ function logout() {
     if (buttonIndex === 1) {
       ActivityIndicator.show("Çıkış yapılıyor, lütfen bekleyin");
       $.ajax({
-        url: 'http://www.tatipetkuafor.com/services/user/token.json',
+        url: 'https://www.tatipetkuafor.com/services/user/token.json',
         type: 'post',
         dataType: 'json',
         success: function(token) {
           $.ajax({
-            url: 'http://www.tatipetkuafor.com/services/user/logout.json',
+            url: 'https://www.tatipetkuafor.com/services/user/logout.json',
             type: 'post',
             dataType: 'json',
             beforeSend: function(r) {
@@ -45,12 +45,12 @@ function logout() {
 
 function whoami() {
   $.ajax({
-    url:'http://www.tatipetkuafor.com/services/user/token.json',
+    url:'https://www.tatipetkuafor.com/services/user/token.json',
     type:'post',
     dataType:'json',
     success:function(token){
       $.ajax({
-        url:'http://www.tatipetkuafor.com/services/system/connect.json',
+        url:'https://www.tatipetkuafor.com/services/system/connect.json',
         type:'post',
         dataType:'json',
         beforeSend:function(r){

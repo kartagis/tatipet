@@ -28,12 +28,12 @@ document.addEventListener("deviceready", function() {
     slideshowVal=$("#flatCheckbox").is(":checked")?1:0;
     console.log(slideshowVal);
     $.ajax({
-      url: "http://www.tatipetkuafor.com/services/user/token.json",
+      url: "https://www.tatipetkuafor.com/services/user/token.json",
       type: "post",
       dataType: "json",
       success: function(token) {
         $.ajax({
-          url: "http://www.tatipetkuafor.com/services/file.json",
+          url: "https://www.tatipetkuafor.com/services/file.json",
           type: "post",
           dataType: "json",
           data: fileData,
@@ -43,7 +43,7 @@ document.addEventListener("deviceready", function() {
           success: function(res) {
             ActivityIndicator.show("Fotoğraf yükleniyor, lütfen bekleyin.");
             $.ajax({
-              url: "http://www.tatipetkuafor.com/services/node.json",
+              url: "https://www.tatipetkuafor.com/services/node.json",
               type: "post",
               dataType: "json",
               beforeSend: function(r) {
