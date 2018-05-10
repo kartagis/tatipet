@@ -1,3 +1,4 @@
+<!--
 <html>
 <head>
   <meta charset="UTF-8">
@@ -30,4 +31,22 @@
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/video.js"></script>
+</body>-->
+<html>
+<head>
+<title>Google APIs - Sample JS Page</title>
+</head>
+<body>
+<button id="execute-request-button">Authorize</button>
+<button id="select-file-button">Select file</button>
+<input id="select-file" type="file" style="display:none"><br><br>
+<button id="upload-file-button">Upload file</button>
+
+<script src="js/jquery.js"></script>
+<script src="js/video.js"></script>
+<script async defer src="https://apis.google.com/js/api.js"
+onload="this.onload=function(){};handleClientLoad()"
+onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
 </body>
+</html>
