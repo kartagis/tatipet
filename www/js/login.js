@@ -13,14 +13,14 @@ document.addEventListener("deviceready", function() {
       return false;
     }
     $.ajax({
-      url: 'http://www.tatipetkuafor.com/services/user/token.json',
+      url: 'https://www.tatipetkuafor.com/services/user/token.json',
       type: 'post',
       dataType: 'json',
       success: function(token) {
         console.log(JSON.stringify(token));
         ActivityIndicator.show("Giriş yapılıyor");
         $.ajax({
-          url: 'http://www.tatipetkuafor.com/services/user/login.json',
+          url: 'https://www.tatipetkuafor.com/services/user/login.json',
           type: 'post',
           dataType: 'json',
           data: 'username='+name.trim()+'&password='+pass,
@@ -46,7 +46,7 @@ document.addEventListener("deviceready", function() {
 
 function whoami() {
   $.ajax({
-    url:'http://www.tatipetkuafor.com/services/system/connect.json',
+    url:'https://www.tatipetkuafor.com/services/system/connect.json',
     type:'post',
     dataType:'json',
     beforeSend:function(r){
