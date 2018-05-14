@@ -15,14 +15,14 @@ document.addEventListener("deviceready", function() {
     $.ajax({
       url: 'https://www.tatipetkuafor.com/services/user/token.json',
       type: 'post',
-      dataType: 'json',
+      dataType: 'jsonp',
       success: function(token) {
         console.log(JSON.stringify(token));
         ActivityIndicator.show("Giriş yapılıyor");
         $.ajax({
           url: 'https://www.tatipetkuafor.com/services/user/login.json',
           type: 'post',
-          dataType: 'json',
+          dataType: 'jsonp',
           data: 'username='+name.trim()+'&password='+pass,
           beforeSend: function(request) {
             request.setRequestHeader("X-CSRF-Token", token.token);
@@ -48,7 +48,7 @@ function whoami() {
   $.ajax({
     url:'https://www.tatipetkuafor.com/services/system/connect.json',
     type:'post',
-    dataType:'json',
+    dataType:'jsonp',
     beforeSend:function(r){
       r.setRequestHeader("X-CSRF-Token",localStorage.getItem("token"));
     },
