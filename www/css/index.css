@@ -88,3 +88,6 @@ input[type="checkbox"] {
 ::-webkit-input-placeholder {
   font-weight:lighter;
 }
+.hidden {
+  display: none;
+}
