@@ -1,7 +1,7 @@
 document.addEventListener("deviceready", function() {
   window.plugins.googleplus.login(
     {
-      'scopes': 'https://www.googleapis.com/auth/youtube.upload',
+      'scopes': 'https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.upload',
       'webClientId': '523345587538-qc2hifm11bahkije7uqn8gkmiva049ps.apps.googleusercontent.com'
     },
     function(obj) {
@@ -17,6 +17,7 @@ document.addEventListener("deviceready", function() {
       })
     },
     function (msg) {
+      console.log(msg);
       navigator.notification.alert("Giriş yapılamadı.", function(){return;}, "Tati Pet", "Tamam");
     }
   )

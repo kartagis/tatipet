@@ -54,8 +54,7 @@
     <plugin name="cordova-plugin-activityindicator" spec="https://github.com/kartagis/cordova-plugin-activityindicator.git" />
     <plugin name="cordova-plugin-file-transfer" spec="https://github.com/westonganger/cordova-plugin-file-transfer.git" />
     <plugin name="cordova-plugin-googleplus" spec="https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git">
-        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.523345587538-kdjh4roscvfdgmvitekahcdach8e7qd1" />
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.523345587538-qc2hifm11bahkije7uqn8gkmiva049ps" />
     </plugin>
     <engine name="ios" spec="^4.5.4" />
-    <engine name="android" spec="^6.4.0" />
 </widget>

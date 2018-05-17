@@ -4,8 +4,7 @@
   "displayName": "TatiPet",
   "cordova": {
     "platforms": [
-      "ios",
-      "android"
+      "ios"
     ],
     "plugins": {
       "cordova-plugin-whitelist": {},
@@ -23,7 +22,7 @@
     }
   },
   "dependencies": {
-    "cordova-android": "^6.4.0",
+    "cordova-android": "^7.1.0",
     "cordova-ios": "^4.5.4",
     "cordova-plugin-activityindicator": "git+https://github.com/kartagis/cordova-plugin-activityindicator.git",
     "cordova-plugin-camera": "^2.4.1",
