@@ -2,7 +2,8 @@ document.addEventListener("deviceready", function() {
   window.plugins.googleplus.login(
     {
       'scopes': 'https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.upload',
-      'webClientId': '523345587538-qc2hifm11bahkije7uqn8gkmiva049ps.apps.googleusercontent.com'
+      'webClientId': '523345587538-qc2hifm11bahkije7uqn8gkmiva049ps.apps.googleusercontent.com',
+      'offline': true
     },
     function(obj) {
       console.log(obj);
