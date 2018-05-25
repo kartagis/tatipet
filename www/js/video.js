@@ -2,11 +2,12 @@ document.addEventListener("deviceready", function() {
   window.plugins.googleplus.login(
     {
       'scopes': 'https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.upload',
-      'webClientId': '523345587538-qc2hifm11bahkije7uqn8gkmiva049ps.apps.googleusercontent.com',
+      'webClientId': '523345587538-d3chbh8fcqti8sck03uc2as8um1l47r7.apps.googleusercontent.com',
       'offline': true
     },
     function(obj) {
       console.log(obj);
+      localStorage.setItem("accessToken",obj.accessToken);
       navigator.notification.alert("Başarıyla giriş yapıldı, şimdi video yükleyebilirsiniz.", function(){return;}, "Tati Pet", "Tamam");
       $("#choose").on("click", function() {
         navigator.camera.getPicture(onVideoSuccess, onFail, {
@@ -26,10 +27,7 @@ document.addEventListener("deviceready", function() {
 
 
 function onVideoSuccess(videoData) {
-  $.post("https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.insert&include_granted_scopes=true&state=state_parameter_passthrough_value&redirect_uri=http%3A%2F%2Flocalhost%2Foauth2callback&response_type=token&client_id='523345587538-kdjh4roscvfdgmvitekahcdach8e7qd1.apps.googleusercontent.com'",function(token){console.log(token);});
-  $(".hidden").removeClass("hidden");
-  //console.log(videoData);
-  //uploadVideo(videoData);
+  uploadVideo(videoData);
 }
 
 /*
@@ -51,7 +49,7 @@ function uploadVideo(fileURL) {
   options.mimeType = 'video/mpg';
   options.chunkedMode = false;
   options.headers = {
-    Authorization: 'Bearer ' + 'ya29.Glu9BSr9DHMms5wRv81ybNt1SnIQmMqoRHNdZoPhwkGMfQFvfDwkmcJ2OjK0vJtPfcGKTfg2-pqU3JXUfJDt2U8BrSHnjTUAYd86KTSR9PNBmImLqU6RxzAuEq8A'
+    Authorization: 'Bearer ' + localStorage.getItem("accessToken")
   };
   options.params = {
     "": {
@@ -69,6 +67,18 @@ function uploadVideo(fileURL) {
   var ft = new FileTransfer();
   ft.upload(fileURL, 'https://www.googleapis.com/upload/youtube/v3/videos?part=snippet,status', function (data) {
     console.log('upload success', data);
+    console.log(data.id);
+    $.ajax({
+      url:'https://www.tatipetkuafor.com/services/node.json',
+      dataType:'json',
+      data:'node[type]=video&node[field_url][und][0][value]=encodeURIComponent("https://www.youtube.com/watch?v="+data.id)',
+      success:function() {
+        navigator.notification.alert('Video başarıyla yüklendi',function(){return;},'Tatipet','Tamam')
+      },
+      error:function() {
+        navigator.notification.alert('Video yüklenemedi',function(){return;},'Tatipet','Tamam')
+      },
+    })
   }, function (e) {
     console.log('upload error', e);
   }, options, true);
