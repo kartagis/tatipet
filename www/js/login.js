@@ -17,7 +17,6 @@ document.addEventListener("deviceready", function() {
       type: 'post',
       dataType: 'json',
       success: function(token) {
-        console.log(JSON.stringify(token));
         ActivityIndicator.show("Giriş yapılıyor");
         $.ajax({
           url: 'https://www.tatipetkuafor.com/services/user/login.json',
